@@ -5,15 +5,16 @@
 #include <string>
 #include <unordered_map>
 #include <sstream>
+#include <iostream>
 #include "utils.h"
 
 
-std::string formatCharCount(const std::unordered_map<char, int> charCount) {
+std::string formatCharCount(const std::unordered_map<char, int> charCount, std::string gap) {
     std::stringstream result;
     result << '\n';
     for (const auto& pair : charCount) {
         result << pair.first;
-        result << ' ';
+        result <<":" << gap;
         result << std::to_string(pair.second);
         result << '\n';
     }
@@ -21,12 +22,16 @@ std::string formatCharCount(const std::unordered_map<char, int> charCount) {
 }
 
 std::string createCharCountTable(std::string msg) {
-    std::string result;
+
+    std::stringstream result;
+    std::string gap = "        ";
     std::unordered_map<char, int> charCount;
     for (char c:msg){
         if (isalpha(c)) {
             charCount[c]++;
         }
     }
-    return formatCharCount(charCount);
+    result <<"\n" << "message -" << " " << msg << formatCharCount(charCount, gap);
+    std::cerr << result.str();
+    return result.str();
 }

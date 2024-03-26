@@ -51,17 +51,17 @@ void Server::addrPrepare() {
 void Server::bindSocketToAddr() {
     int opt = 1;
     if (setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
-        std::cerr << "Error setting socket option" << std::endl;
+        throw std::runtime_error("Error setting socket option");
     }
 
     if (bind(serverSocket, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) < 0) {
-        std::cerr << "Error binding socket" << std::endl;
+        throw std::runtime_error("Error binding socket");
     }
 }
 
 void Server::start() {
     if (listen(serverSocket, MAX_CLIENTS) < 0) {
-        std::cerr << "Error listening" << std::endl;
+        throw std::runtime_error("Error listening");
     }
 
     std::cout << "Server started on port "<< port << std::endl;
@@ -101,15 +101,12 @@ void Server::handleClient(int clientSocket) {
         int bytesReceived = recv(socket, buffer, BUFFER_SIZE - 1, 0);
         if (bytesReceived <= 0) {
             shutdown(socket, SHUT_RDWR);
-
-            // Клиент отключился
             close(socket);
             clientsMutex.lock();
             clients.erase(std::remove(clients.begin(), clients.end(), clientSocket), clients.end());
             clientsMutex.unlock();
             std::cout << "Client disconnected: " << inet_ntoa(clientAddr.sin_addr) << std::endl;
             break;
-            // Закрываем соединение с клиентом
         }
         std::string message(buffer, bytesReceived);
 
