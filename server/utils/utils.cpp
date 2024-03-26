@@ -32,6 +32,5 @@ std::string createCharCountTable(std::string msg) {
         }
     }
     result <<"\n" << "message -" << " " << msg << formatCharCount(charCount, gap);
-    std::cerr << result.str();
     return result.str();
 }

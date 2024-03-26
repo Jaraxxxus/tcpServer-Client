@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 cmake_minimum_required(VERSION 3.27)
+=======
+cmake_minimum_required(VERSION 3.22)
+>>>>>>> Stashed changes
 project(server)
 
 set(CMAKE_CXX_STANDARD 17)
