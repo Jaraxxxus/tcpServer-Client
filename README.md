@@ -6,7 +6,7 @@ This is a simple TCP/IP server and client application designed to handle communi
 ## Usage:
 1. **Server**: The server is a basic TCP/IP server hardcoded to listen on port 7070. It waits for incoming connections from clients and handles their requests.
 
-2. **Client**: The client interacts with the server by sending messages and receiving responses. It can send messages to be parsed by the server and request specific information such as the count of Latin letters in a message, the count of connected clients, or broadcast messages to all connected clients.
+2. **Client**: The client interacts with the server by sending messages and receiving responses. It can send messages to be parsed by the server to count of Latin letters in a message or request specific information such the count of connected clients, or broadcast messages to all connected clients.
 
 ## Features:
 - **TCP/IP Communication**: Utilizes TCP/IP protocol for communication between server and client.
