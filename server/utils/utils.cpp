@@ -22,7 +22,6 @@ std::string formatCharCount(const std::unordered_map<char, int> charCount, std::
 }
 
 std::string createCharCountTable(std::string msg) {
-
     std::stringstream result;
     std::string gap = "        ";
     std::unordered_map<char, int> charCount;
