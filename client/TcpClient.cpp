@@ -79,7 +79,6 @@ bool TcpClient::Connect() {
 
 void TcpClient::start() {
     while (true) {
-        // Создание сокета
         createSocket();
         setServer();
         if (!Connect()){
