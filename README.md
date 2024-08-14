@@ -9,10 +9,7 @@ This is a simple TCP/IP server and client application designed to handle communi
 2. **Client**: The client interacts with the server by sending messages and receiving responses. It can send messages to be parsed by the server to count of Latin letters in a message or request specific information such the count of connected clients, or broadcast messages to all connected clients.
 
 ## Features:
-- **TCP/IP Communication**: Utilizes TCP/IP protocol for communication between server and client.
-- **Message Parsing**: The server parses messages received from clients and returns a table containing the count of Latin letters only.
-- **Client Requests**: The client can request information such as the count of connected clients or broadcast messages to all clients.
-- **Hardcoded Configuration**: The server is hardcoded to listen on port 7070 for simplicity.
+- **None**
 
 ## Getting Started:
 To use this application, follow these steps:
